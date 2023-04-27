@@ -55,10 +55,13 @@ export class AppComponent implements OnInit {
   loginForm!: FormGroup;
 
   // We need to declare the fruitService, but promise it will be initialized before we use it.
-  fruitService!: FruitService;
-  fruits: string[] = ['Potatoe', 'Carrot', 'Squash', 'Gummy'];
+  // fruitService!: FruitService;
+  fruits: string[] = [];
 
-  constructor(private formBuilder: FormBuilder, fruitService: FruitService) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private fruitService: FruitService
+  ) {}
 
   ngOnInit(): void {
     // this.loginForm = new FormGroup({
@@ -77,7 +80,7 @@ export class AppComponent implements OnInit {
 
     // fruits: string [] = ['Potatoe', 'Carrot', 'Squash', 'Gummy'];
     // Swapping out fruits
-    // this.fruits = this.fruitService.item_list();
+    this.fruits = this.fruitService.list();
 
     // This creates our own FormGroup object. Not sure which is better.
     this.loginForm = new FormGroup(

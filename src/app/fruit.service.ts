@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class FruitService {
   constructor() {}
-  item_list(): string[] {
-    return ['French Fries', 'Cheeseburgers', 'Pizza', 'Hot Dogs'];
+  list(): string[] {
+    return ['French Fries', 'Cheeseburgers', 'Pizza', 'Hot Dogs', 'Cheetos'];
   }
 }
