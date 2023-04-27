@@ -80,7 +80,7 @@ export class AppComponent implements OnInit {
 
     // fruits: string [] = ['Potatoe', 'Carrot', 'Squash', 'Gummy'];
     // Swapping out fruits
-    this.fruits = this.fruitService.list();
+    this.fruitService.list().subscribe((data) => (this.fruits = data));
 
     // This creates our own FormGroup object. Not sure which is better.
     this.loginForm = new FormGroup(
