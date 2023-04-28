@@ -7,6 +7,8 @@ import { ProjectsModule } from './projects/projects.module';
 import { FruitListComponent } from './fruit-list/fruit-list.component';
 import { EmailSubscribeComponent } from './email-subscribe/email-subscribe.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent, FruitListComponent, EmailSubscribeComponent],
   imports: [
@@ -15,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProjectsModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
