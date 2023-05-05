@@ -11,6 +11,7 @@ import {
 } from '@angular/forms';
 
 import { FruitService } from './fruit.service';
+import { FruitModel } from './fruit.model';
 
 class CustomValidators {
   // How to generate a validation error without passing an argument
@@ -57,6 +58,7 @@ export class AppComponent implements OnInit {
   // We need to declare the fruitService, but promise it will be initialized before we use it.
   // fruitService!: FruitService;
   fruits: string[] = [];
+  // myFruits: FruitModel[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -80,7 +82,11 @@ export class AppComponent implements OnInit {
 
     // fruits: string [] = ['Potatoe', 'Carrot', 'Squash', 'Gummy'];
     // Swapping out fruits
-    this.fruitService.list().subscribe((data) => (this.fruits = data));
+    this.fruitService
+      .listOfFruit()
+      .subscribe((some_data) => (this.fruits = some_data));
+
+    // this.fruitService.getFruits().subscribe((data) => (this.myFruits = data));
 
     // This creates our own FormGroup object. Not sure which is better.
     this.loginForm = new FormGroup(

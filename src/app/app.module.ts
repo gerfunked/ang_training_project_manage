@@ -8,6 +8,7 @@ import { FruitListComponent } from './fruit-list/fruit-list.component';
 import { EmailSubscribeComponent } from './email-subscribe/email-subscribe.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [AppComponent, FruitListComponent, EmailSubscribeComponent],
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    HomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

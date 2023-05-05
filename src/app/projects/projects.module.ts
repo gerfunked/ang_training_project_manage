@@ -9,6 +9,8 @@ import { ProjectCardComponent } from './project-card/project-card.component';
 import { ProjectFormComponent } from './project-form/project-form.component';
 
 import { ValidationErrorsComponent } from '../shared/validation-errors/validation-errors.component';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { ProjectDetailContainerComponent } from './project-detail-container/project-detail-container.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { ValidationErrorsComponent } from '../shared/validation-errors/validatio
     ProjectCardComponent,
     ProjectFormComponent,
     ValidationErrorsComponent,
+    ProjectDetailComponent,
+    ProjectDetailContainerComponent,
   ],
   imports: [CommonModule, ProjectsRoutingModule, ReactiveFormsModule],
   exports: [ProjectsContainerComponent],

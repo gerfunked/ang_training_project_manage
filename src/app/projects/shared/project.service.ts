@@ -1,9 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError, delay } from 'rxjs/operators';
 import { Project } from './project.model';
 import { MOCK_PROJECTS } from './mock-projects';
-import { HttpClient } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'content-type': 'application/json' }),
+};
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +20,39 @@ import { environment } from 'src/environments/environment';
 export class ProjectService {
   private projectsUrl = environment.backendUrl + '/projects/';
 
+  put(project: Project): Observable<Project> {
+    const url = this.projectsUrl + project.id;
+    return this.http.put<Project>(url, project, httpOptions).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.log(error);
+        return throwError(
+          () => new Error('An error ocured updating the projects!!!')
+        );
+      })
+    );
+  }
   constructor(private http: HttpClient) {}
+
+  find(id: number): Observable<Project> {
+    const url = this.projectsUrl + id;
+    return this.http.get<Project>(url).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error(error);
+        return throwError('An error occurred loading the project');
+      })
+    );
+  }
 
   list(): Observable<Project[]> {
     // return of(MOCK_PROJECTS);
-    return this.http.get<Project[]>(this.projectsUrl);
+    return this.http.get<Project[]>(this.projectsUrl).pipe(
+      delay(2000),
+      catchError((error: HttpErrorResponse) => {
+        console.log(error);
+        return throwError(
+          () => new Error('An error occurred loading the projects!!!')
+        );
+      })
+    );
   }
 }

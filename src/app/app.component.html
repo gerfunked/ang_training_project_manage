@@ -2,9 +2,30 @@
   Hold my beer and watch this!!!
 </blockquote>
 
+<header class="sticky">
+  <a [routerLink]="['./home']" class="logo">
+    <img src="../assets/logo-3.svg" alt="logo" width="49" height="99" />
+  </a>
+  <a [routerLink]="['./home']" class="button rounded" routerLinkActive="active">
+    <span class="icon-home"></span>
+    Home
+  </a>
+  <a
+    [routerLink]="['./projects']"
+    class="button rounded"
+    routerLinkActive="active"
+  >
+    Projects
+  </a>
+</header>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
 <h1>Form</h1>
 <div>This is an example of login form with validatio</div>
->
+
 <!-- <form [formGroup]="loginForm">
   <input
     [formControl]="loginForm.get('username')"
@@ -67,7 +88,7 @@
 <pre>{{ loginForm.get("username")?.errors | json }}</pre>
 <pre>{{ loginForm.get("password")?.errors | json }}</pre>
 
-<app-fruit-list [fruits]="fruits"></app-fruit-list>>
+<app-fruit-list [fruits]="fruits"></app-fruit-list>
 <div>
   <app-email-subscribe (subscribe)="onSubscribe($event)"></app-email-subscribe>
 </div>
@@ -76,4 +97,4 @@
 >
 <p [innerText]="message"></p>
 {{ title }}
-<app-projects-container></app-projects-container>>
+<!-- <app-projects-container></app-projects-container> -->

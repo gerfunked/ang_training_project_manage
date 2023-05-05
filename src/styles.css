@@ -1,6 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~mini.css/dist/mini-default.min.css";
 
+html,
+body,
+.container {
+  height: 100%;
+}
+
+header {
+  height: 51875rem;
+}
+
+a.btton.active {
+  border: 1px solid var(--fore-color);
+}
+
+.center-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 input.ng-invalid {
   border-color: var(--input-invalid-color);
   box-shadow: none;
