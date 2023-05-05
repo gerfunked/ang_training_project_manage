@@ -19,7 +19,7 @@ export class FruitService {
       'Pizza',
       'Hot Dogs',
       'Cheetos',
-    ]).pipe(delay(3000));
+    ]).pipe(delay(30));
   }
 
   // http://127.0.0.1:13000/fruits/1

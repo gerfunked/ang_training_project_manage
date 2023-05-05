@@ -1,1 +1,61 @@
-<h1>Welcome Home!!!</h1>
+<h1>Form</h1>
+<div>This is an example of login form with validation</div>
+
+<form [formGroup]="loginForm" (submit)="onSubmit()">
+  <label>User Name</label>
+  <input
+    formControlName="username"
+    type="text"
+    name="username"
+    placeholder="User Name"
+  />
+  <div
+    *ngIf="
+      loginForm.get('username')?.dirty &&
+      loginForm.get('username')?.invalid &&
+      loginForm.get('username')?.touched
+    "
+  >
+    <div *ngIf="loginForm.get('username')?.hasError('required')">
+      Username is required
+    </div>
+    <div *ngIf="loginForm.get('username')?.hasError('minlength')">
+      Username needs to be at least 3 characters
+    </div>
+  </div>
+  <br />
+
+  <label for="description">Password</label>
+  <input
+    formControlName="password"
+    type="password"
+    name="password"
+    placeholder="Password"
+  />
+  <!-- <div *ngIf="loginForm.get('username)?.touched')"> -->
+  <div
+    *ngIf="
+      loginForm.get('password')?.hasError('forbiddenPhrase') ||
+      loginForm.get('password')?.hasError('forbiddenPhraser')
+    "
+  >
+    Come on man, you can't use that password.
+  </div>
+  <div>{{ loginForm.value | json }}</div>
+
+  <button type="submit">Sign In</button>
+</form>
+
+<pre *ngIf="debug">{{ loginForm.value | json }}</pre>
+<pre *ngIf="debug">{{ loginForm.get("username")?.errors | json }}</pre>
+<pre *ngIf="debug">{{ loginForm.get("password")?.errors | json }}</pre>
+
+<app-fruit-list [fruits]="fruits"></app-fruit-list>
+<div>
+  <app-email-subscribe (subscribe)="onSubscribe($event)"></app-email-subscribe>
+</div>
+
+<a href="" (click)="onClick($event, 'I have something to say')"
+  >Please Click Me!!!</a
+>
+<p [innerText]="message"></p>
