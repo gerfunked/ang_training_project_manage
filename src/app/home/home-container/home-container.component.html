@@ -32,7 +32,6 @@
     name="password"
     placeholder="Password"
   />
-  <!-- <div *ngIf="loginForm.get('username)?.touched')"> -->
   <div
     *ngIf="
       loginForm.get('password')?.hasError('forbiddenPhrase') ||

@@ -66,61 +66,15 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.loginForm = new FormGroup({
-    //   username: new FormControl(),
-    //   password: new FormControl(),
-    // });
-
-    // This uses the passed in formBuilder Object. You need to pass in formBuilder in with the constructor
-    // this.loginForm = this.formBuilder.group(
-    //   {
-    //     username: [null, Validators.required],
-    //     password: [null, Validators.required],
-    //   },
-    //   { updateOn: 'blur' }
-    // );
-
-    // fruits: string [] = ['Potatoe', 'Carrot', 'Squash', 'Gummy'];
     // Swapping out fruits
     this.fruitService
       .listOfFruit()
       .subscribe((some_data) => (this.fruits = some_data));
 
     // this.fruitService.getFruits().subscribe((data) => (this.myFruits = data));
-
-    // This creates our own FormGroup object. Not sure which is better.
-    this.loginForm = new FormGroup(
-      {
-        username: new FormControl(null, [
-          Validators.required,
-          Validators.minLength(3),
-        ]),
-        password: new FormControl(
-          null,
-          [
-            Validators.required,
-            CustomValidators.forbiddenPhrase,
-            CustomValidators.forbiddenPhraseValidatorFn('abcdef'),
-          ]
-          // CustomValidators.forbiddenPhraseValidatorFn('abcdef')
-        ),
-      },
-      { updateOn: 'blur' }
-    );
   }
 
   title = 'Awesome Project';
 
   message = '';
-
-  onClick(event: MouseEvent, value: string) {
-    event.preventDefault();
-    this.message = value;
-  }
-
-  onSubscribe(event: string) {
-    console.log(`I also got your e-mail: ${event}`);
-  }
-
-  onSubmit() {}
 }

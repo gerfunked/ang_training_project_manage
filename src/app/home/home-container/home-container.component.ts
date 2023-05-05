@@ -44,22 +44,10 @@ class CustomValidators {
   styleUrls: ['./home-container.component.css'],
 })
 export class HomeContainerComponent implements OnInit {
-  // You can declare null, but since it will be declared later, there is no need to
-  // loginForm: FormGroup = null;
-
-  // Or we could initiate it with empty junk.
-  // loginForm: FormGroup = new FormGroup({
-  //   username: new FormControl(),
-  //   password: new FormControl(),
-  // });
-
   // But we PROMISE we will declare this before we use it.
   loginForm!: FormGroup;
 
-  // We need to declare the fruitService, but promise it will be initialized before we use it.
-  // fruitService!: FruitService;
   fruits: string[] = [];
-  // myFruits: FruitModel[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -69,21 +57,6 @@ export class HomeContainerComponent implements OnInit {
   debug: boolean = false;
 
   ngOnInit(): void {
-    // this.loginForm = new FormGroup({
-    //   username: new FormControl(),
-    //   password: new FormControl(),
-    // });
-
-    // This uses the passed in formBuilder Object. You need to pass in formBuilder in with the constructor
-    // this.loginForm = this.formBuilder.group(
-    //   {
-    //     username: [null, Validators.required],
-    //     password: [null, Validators.required],
-    //   },
-    //   { updateOn: 'blur' }
-    // );
-
-    // fruits: string [] = ['Potatoe', 'Carrot', 'Squash', 'Gummy'];
     // Swapping out fruits
     this.fruitService
       .listOfFruit()
