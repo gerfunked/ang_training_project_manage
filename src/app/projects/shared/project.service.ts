@@ -46,7 +46,7 @@ export class ProjectService {
   list(): Observable<Project[]> {
     // return of(MOCK_PROJECTS);
     return this.http.get<Project[]>(this.projectsUrl).pipe(
-      delay(2000),
+      delay(20),
       catchError((error: HttpErrorResponse) => {
         console.log(error);
         return throwError(

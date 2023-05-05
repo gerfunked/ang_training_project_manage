@@ -5,10 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProjectsModule } from './projects/projects.module';
 import { HomeModule } from './home/home.module';
+import { AkitaSbModule } from './akita-sb/akita-sb.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, ProjectsModule, HomeModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ProjectsModule,
+    HomeModule,
+    AkitaSbModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
