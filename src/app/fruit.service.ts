@@ -6,6 +6,7 @@ import { FruitsStore } from './fruits.store';
 import { catchError } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
+import { FruitsQuery } from './fruits.query';
 
 @Injectable({
   providedIn: 'root',
@@ -27,13 +28,7 @@ export class FruitService {
   getFruits(): void {
     this.http
       .get<FruitModel[]>(`http://127.0.0.1:13000/fruits/`)
-      .pipe(
-        catchError((error: HttpErrorResponse) => {
-          alert(error.message);
-          return throwError(error.message);
-        })
-      )
-      .subscribe((data) => this.fruitStore.set(data));
+      .subscribe((data) => this.fruitStore.update(data));
   }
 
   //myFruits?: FruitModel[];
